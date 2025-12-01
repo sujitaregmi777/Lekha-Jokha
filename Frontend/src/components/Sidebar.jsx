@@ -1,18 +1,14 @@
-import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";  
 import { LayoutDashboard, BadgeDollarSign, ClipboardMinus, Settings, CalendarCheck, BanknoteArrowDown, X } from 'lucide-react';
 
 
-export default function Sidebar(){
-    const [open , setopen] = useState(true);
+export default function Sidebar( { open , onclose }){
     const nav = useNavigate();
-    if (!open) 
-        return (true);
-
-
+        if (!open) 
+        return null;
     return(
-        <div className="relative w-72">
-        < X size = { 25}  className="flex bg-blue-950 text-white hover:underline hover:text-blue-500 absolute top-4 right-4 " onClick={() => {setopen(false);
+        <div className={`fixed inset-y-0 left-0 w-64 h-screen shadow-xl bg-white dark:bg-blue-950 dark:text-white z-50  transition-transform duration-300 ${ open ? 'translate-x-0 ': '-translate-x-full'}`}>
+        < X size = { 25}  className="flex bg-blue-950 text-white hover:underline hover:text-blue-500 absolute top-4 right-4 " onClick={() => {onclose(false);
              nav("/dashboard")}}/>
         <div  className="p-4 flex  flex-col gap-7 pt-20" >
             <input type="Search" placeholder="  Search" className="w-40 h-10 border-black border rounded-md" />
