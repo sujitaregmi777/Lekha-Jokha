@@ -13,7 +13,7 @@ export default function Login() {
     return(
         <div className=" h-screen w-screen  border flex flex-col items-center justify-center relative">
         <img src="https://cdn.bookmyforex.com/blog/uploads/2023/08/6-Best-International-Money-Transfer-Services-in-India.png"  alt = "" className="blur-sm w-full h-full bg-cover absolute" />
-        <div className=" flex flex-col items-center justify-center  mt-10 p-10 h-fit max-w-fit bg-blue-200 mb-10 border border-black relative">
+        <div className=" flex flex-col items-center justify-center  mt-10 p-10 h-fit max-w-fit bg-slate-200 rounded-md mb-10 border border-black relative">
             <h1 className="text-2xl font-bold font-serif mb-4">Login</h1>
             <form onSubmit={handleLogin} className="flex flex-col gap-4  mb-6 mt-10">
                 <div className="flex items-center gap-2">

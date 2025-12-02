@@ -7,12 +7,12 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-export default function Piechart({ data }) {
+export default function PiechartIncome({ data }) {
   const colors = ["#60a5fa", "#34d399", "#fbbf24", "#f87171", "#a78bfa"];
 
   return (
     <div className="bg-white dark:bg-gray-800 p-5 rounded-xl shadow-md">
-      <h2 className="text-lg font-semibold mb-4">Category Breakdown</h2>
+      <h2 className="text-lg font-semibold mb-4">Income Chart</h2>
 
       <ResponsiveContainer width="100%" height={300}>
         <PieChart>
