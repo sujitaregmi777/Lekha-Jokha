@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router";
+import { User, Lock } from 'lucide-react';
 export default function Login() {
     const [ username , setUsername] = useState();
     const [ password, setPassword] = useState();
@@ -11,26 +12,33 @@ export default function Login() {
     };
 
     return(
-        <div className=" h-screen w-screen  border flex flex-col items-center justify-center relative">
-        <img src="https://cdn.bookmyforex.com/blog/uploads/2023/08/6-Best-International-Money-Transfer-Services-in-India.png"  alt = "" className="blur-sm w-full h-full bg-cover absolute" />
-        <div className=" flex flex-col items-center justify-center  mt-10 p-10 h-fit max-w-fit bg-slate-200 rounded-md mb-10 border border-black relative">
-            <h1 className="text-2xl font-bold font-serif mb-4">Login</h1>
+        <div className=" h-screen w-screen flex ">
+                  <div className="w-1/2 flex items-center justify-center bg-gray-100">
+        <img
+          src="login.jpg"
+          alt=""
+          className="w-full h-full object-cover"
+        />
+      </div>
+        <div className=" w-1/2 flex flex-col items-center justify-center p-10 bg-gray-100 shadow-2xl">
+            <h1 className="text-3xl font-extrabold font-serif mb-4">Login</h1>
             <form onSubmit={handleLogin} className="flex flex-col gap-4  mb-6 mt-10">
-                <div className="flex items-center gap-2">
-            <label className="text-black font-bold text-xl">Username :</label>
+                <div className="flex items-center gap-2">   
+                    
+            {/* <label className="text-black font-bold text-xl">Username :</label> */}
             <input 
             type="text"
-            className=" flex-1 p-3  border-black border-2 rounded bg-slate-300 text-black text-xl"
+            className=" flex-1 p-3  border-black border-2 rounded-lg bg-slate-300 text-black text-xl"
             placeholder="   Enter your username"
             value = {username} 
             onChange = {e => setUsername(e.target.value)}
             />
           </div>
             <div className="flex items-center gap-2">
-                <label  className=" flex-1 text-black font-bold text-xl">Password :</label>
+                {/* <label  className=" flex-1 text-black font-bold text-xl">Password :</label> */}
             <input 
             type="password"
-            className=" flex-1 p-3 border-black border-2 rounded  bg-slate-300 text-black text-xl"
+            className=" flex-1 p-3 border-black border-2 rounded-lg  bg-slate-300 text-black text-xl"
             placeholder="   Enter your password"
             value = {password} 
             onChange = {e => setPassword(e.target.value)}

@@ -11,8 +11,8 @@ import Sidebar from "./components/Sidebar";
 import Password from "./pages/Password";
 import Message from "./components/Message";
 import Notification from "./components/Notification";
-import ExpensesGroup from "./pages/ExpensesGroup";
-import ExpensesSolo from "./pages/ExpensesSolo";
+// import ExpensesGroup from "./pages/ExpensesGroup";
+// import ExpensesSolo from "./pages/ExpensesSolo";
 
 export default function App(){
   return(
@@ -28,8 +28,8 @@ export default function App(){
           {/* <Route  path = "/components/notification" element = {<Notification/>} />  */}
           <Route  path = "/login" element = {<Login/>} />
           <Route  path = "/register" element = {<Register/>} />
-          <Route  path = "/group" element = {<ExpensesGroup/>} />
-          <Route  path = "/solo" element = {<ExpensesSolo/>} />
+          {/* <Route  path = "/group" element = {<ExpensesGroup/>} />
+          <Route  path = "/solo" element = {<ExpensesSolo/>} /> */}
           <Route  path = "/password" element = {<Password/>} />
         </Routes>
 

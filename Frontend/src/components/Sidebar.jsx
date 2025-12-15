@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";  
 import { useState } from "react";
-import { LayoutDashboard, BadgeDollarSign, ClipboardMinus, Settings, CalendarCheck, BanknoteArrowDown, X } from 'lucide-react';
+import { LayoutDashboard, BadgeDollarSign, ClipboardMinus, Settings, CalendarCheck, BanknoteArrowDown, X , UsersRound, UserRound } from 'lucide-react';
 
 
 export default function Sidebar( { open , onclose }){
@@ -23,8 +23,8 @@ export default function Sidebar( { open , onclose }){
             <button onClick = {() => toggledrop("expenses")} className="text-xl font-bold flex items-center gap-2 hover:underline hover:text-blue-500" >< BanknoteArrowDown size = { 25 } />Expenses/Income</button> 
             { dropdown   && (
                 <div>
-                <Link to = "/solo" className="text-xl font-bold flex items-center gap-2 hover:underline hover:text-blue-500" >< LayoutDashboard size = { 25 } />Solo</Link>
-                <Link to = "/group" className="text-xl font-bold flex items-center gap-2 hover:underline hover:text-blue-500" >< LayoutDashboard size = { 25 } />Group</Link>
+                <Link to = "/solo" className="text-xl font-bold flex items-center gap-2 hover:underline hover:text-blue-500 mb-5 mt-5" >< UserRound size = { 25 } />Solo</Link>
+                <Link to = "/group" className="text-xl font-bold flex items-center gap-2 hover:underline hover:text-blue-500 " >< UsersRound size = { 25 } />Group</Link>
                 </div>
             )} 
             </div>
