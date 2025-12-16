@@ -28,9 +28,10 @@ export default function Login() {
             {/* <label className="text-black font-bold text-xl">Username :</label> */}
             <input 
             type="text"
-            className=" flex-1 p-3  border-black border-2 rounded-lg bg-slate-300 text-black text-xl"
+            className=" flex-1 p-3  border-green-400 border-2 rounded-lg bg-slate-300 text-black text-xl"
             placeholder="   Enter your username"
             value = {username} 
+            required
             onChange = {e => setUsername(e.target.value)}
             />
           </div>
@@ -41,6 +42,7 @@ export default function Login() {
             className=" flex-1 p-3 border-black border-2 rounded-lg  bg-slate-300 text-black text-xl"
             placeholder="   Enter your password"
             value = {password} 
+            required
             onChange = {e => setPassword(e.target.value)}
             />
             </div>

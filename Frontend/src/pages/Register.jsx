@@ -1,17 +1,14 @@
 import { useState } from "react";
-// FIX: Use react-router-dom for proper routing
 import { Link } from "react-router-dom"; 
 import { ShieldUser } from "lucide-react";
 
 export default function Register(){
 
-    // CORRECTED STATE: Initialized with empty strings and clear names
     const [rusername , setRUsername] = useState('');
     const [email , setEmail] = useState('');
     const [password , setPassword] = useState('');
-    const [confirmPassword , setConfirmPassword] = useState(''); // State for password verification
-    
-    // State to manage feedback message to the user
+    const [confirmPassword , setConfirmPassword] = useState(''); 
+ 
     const [message, setMessage] = useState('');
     const [error, setError] = useState(false);
 
@@ -20,10 +17,13 @@ export default function Register(){
         setMessage('');
         setError(false);
 
-        // Client-side validation for password match
         if (password !== confirmPassword) {
             setMessage("Error: Passwords do not match!");
             setError(true);
+            return;
+        }
+        if (!rusername ||!email || !password || !confirmPassword ){
+            setMessage("Please fill all the forms..")
             return;
         }
 
@@ -33,7 +33,6 @@ export default function Register(){
             password: password,
         };
         
-        // API Call to Django Backend (Assuming Django runs on http://localhost:8000)
         try {
             const response = await fetch('http://localhost:8000/api/register/', {
                 method: 'POST',
@@ -47,19 +46,16 @@ export default function Register(){
             
             if (response.ok) {
                 setMessage("Registration successful! You can now log in.");
-                // Clear form inputs on success
                 setRUsername('');
                 setEmail('');
                 setPassword('');
                 setConfirmPassword('');
             } else {
-                // Server-side errors (e.g., username taken, invalid email)
                 const errorMessages = Object.values(data).flat().join(' ');
                 setMessage(`Registration failed: ${errorMessages}`);
                 setError(true);
             }
         } catch (error) {
-            // Network or connection errors
             setMessage("A network error occurred. Please ensure the backend is running.");
             setError(true);
             console.error('Fetch error:', error);
@@ -67,10 +63,8 @@ export default function Register(){
     };
 
     return(
-        // OUTER CONTAINER: Full screen, centered
         <div className="h-screen w-screen flex flex-col items-center justify-center relative">
-            
-            {/* BACKGROUND IMAGE with Overlay */}
+
             <div className="absolute inset-0 bg-gray-900 bg-opacity-70">
                 <img 
                     src="https://cdn.bookmyforex.com/blog/uploads/2023/08/6-Best-International-Money-Transfer-Services-in-India.png" 
@@ -79,16 +73,14 @@ export default function Register(){
                 />
             </div>
 
-            {/* REGISTER CARD: Clean, Elevated Look */}
+
             <div className="w-full max-w-lg p-12 bg-white rounded-xl shadow-2xl relative z-10">
                 
-                {/* Header */}
                 <h1 className="flex items-center justify-center text-4xl font-extrabold text-gray-800 mb-2 gap-2">
                     <ShieldUser size={36} className="text-blue-600"/> REGISTER
                 </h1>
                 <p className="text-sm font-medium text-center text-gray-500 mb-4" >Create your account to connect with us</p>
 
-                {/* Feedback Message */}
                 {message && (
                     <div className={`p-3 rounded-lg text-center font-bold mb-4 ${error ? 'bg-red-200 text-red-800' : 'bg-green-200 text-green-800'}`}>
                         {message}
@@ -97,7 +89,6 @@ export default function Register(){
 
                 <form onSubmit={handleregister} className="flex flex-col gap-5">
                     
-                    {/* Username Input */}
                     <div className="flex flex-col gap-1"> 
                         <label className="text-gray-600 font-semibold text-sm">Username</label>
                         <input 
@@ -110,7 +101,6 @@ export default function Register(){
                         />
                     </div>
 
-                    {/* Email Input */}
                     <div className="flex flex-col gap-1">
                         <label className="text-gray-600 font-semibold text-sm">Email</label>
                         <input 
@@ -122,8 +112,7 @@ export default function Register(){
                             required
                         />
                     </div>
-                    
-                    {/* Password Input */}
+                 
                     <div className="flex flex-col gap-1">
                         <label className="text-gray-600 font-semibold text-sm">Password</label>
                         <input 
@@ -136,7 +125,6 @@ export default function Register(){
                         />
                     </div>
 
-                    {/* Confirm Password Input */}
                     <div className="flex flex-col gap-1">
                         <label className="text-gray-600 font-semibold text-sm">Confirm Password</label>
                         <input 
@@ -149,7 +137,6 @@ export default function Register(){
                         />
                     </div>
 
-                    {/* Register Button */}
                     <button 
                         type="submit" 
                         className="mt-4 bg-green-600 text-white p-3 rounded-lg text-xl font-bold hover:bg-green-700 transition duration-150 shadow-md w-full"
@@ -157,7 +144,6 @@ export default function Register(){
                         Create Account
                     </button>
                     
-                    {/* Login Link */}
                     <p className="text-sm text-gray-600 text-center mt-4">
                         Already registered?
                         <Link 
