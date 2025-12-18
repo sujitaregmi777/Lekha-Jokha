@@ -9,6 +9,7 @@ import Navbar from "./components/Navbar";
 // import Expenses from "./pages/Expenses";
 import Password from "./pages/Password";
 import ExpensesSolo from "./pages/Expenses/ExpensesSolo";
+import ExpensesGroup from "./pages/Expenses/ExpensesGroup";
 
 
 export default function App(){
@@ -22,7 +23,7 @@ export default function App(){
           {/* <Route  path = "/home" element = {<Home/>} /> */}
           <Route  path = "/login" element = {<Login/>} />
           <Route  path = "/register" element = {<Register/>} />
-          {/* <Route  path = "/group" element = {</>} /> */}
+          <Route  path = "/group" element = {<ExpensesGroup/>} />
           <Route  path = "/solo" element = {<ExpensesSolo/>} />
           <Route  path = "/password" element = {<Password/>} />
         </Routes>

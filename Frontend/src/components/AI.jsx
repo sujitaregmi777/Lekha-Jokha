@@ -10,7 +10,7 @@ export default function AI({ open, onclose }) {
       <div className="flex justify-between items-center mb-3">
         <h2 className="font-semibold text-lg text-black dark:text-white">AI Assistant</h2>
         <button onClick={onclose}>
-          <X size={20} />
+          <X size={20} className="dark:text-white" />
         </button>
       </div>
 
