@@ -15,7 +15,9 @@ export default function User({ open, onclose }) {
 
   return (
     <>
-      <div className="fixed right-0 top-14 w-48 bg-white dark:bg-blue-950 shadow-xl z-40 rounded-md">
+    
+    <div onClick={onclose}>
+      <div className="fixed right-0 top-14 w-48 bg-white dark:bg-blue-950 shadow-xl z-40 rounded-md" >
         <Link
           to="/usersetting"
           className=" px-4 py-2 font-semibold hover:bg-gray-100 dark:hover:bg-blue-900 border-2 border-b flex"
@@ -32,7 +34,7 @@ export default function User({ open, onclose }) {
       </div>
 
       {modal && (
-        <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center">
+        <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center backdrop-blur-sm ">
           <div className="bg-white dark:bg-gray-900 p-6 rounded-lg w-80">
             <h2 className="text-lg font-semibold text-center mb-4">
               Are you sure you want to logout?
@@ -56,6 +58,7 @@ export default function User({ open, onclose }) {
           </div>
         </div>
       )}
+    </div>
     </>
   );
 }

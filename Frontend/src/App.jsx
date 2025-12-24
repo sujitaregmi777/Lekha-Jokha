@@ -10,6 +10,7 @@ import Navbar from "./components/Navbar";
 import Password from "./pages/Password";
 import ExpensesSolo from "./pages/Expenses/ExpensesSolo";
 import ExpensesGroup from "./pages/Expenses/ExpensesGroup";
+import Settlement from "./pages/Settlement/Settlement";
 
 
 export default function App(){
@@ -20,6 +21,7 @@ export default function App(){
           <Route element = {<Layout/>} />
           <Route  path = "/" element = {<Home/>} />
           <Route  path = "/dashboard" element = {<Dashboard/>} />
+          <Route  path = "/settlement" element = {<Settlement/>} />
           {/* <Route  path = "/home" element = {<Home/>} /> */}
           <Route  path = "/login" element = {<Login/>} />
           <Route  path = "/register" element = {<Register/>} />

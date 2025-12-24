@@ -25,17 +25,18 @@ export default function Navbar() {
   const location = useLocation();
   const hidelayout = location.pathname === "/login" || location.pathname === "/register" || location.pathname === "/";
   
+  const handleOnClick = () => {
+    
+  }
   if (hidelayout) {
     return <Outlet />;
   }
 
   return (
-    <>
+    <div  >
       {/* Main Navbar */}
-      <div className="sticky top-0 z-40 backdrop-blur-lg bg-white/80 dark:bg-gray-900/80 border-b border-gray-200 dark:border-gray-800 shadow-sm">
-        <div className="px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            
+      <div className="fixed top-0 z-40 backdrop-blur-lg  bg-white dark:bg-gray-900/80 border-b border-gray-200 dark:border-gray-800 shadow-sm w-full px-4 sm:px-6 lg:px-8 flex items-center justify-between " onClick={handleOnClick}  >
+
             {/* Left Section - Menu */}
             <div className="flex items-center gap-4">
               <button
@@ -54,7 +55,8 @@ export default function Navbar() {
             </div>
 
             {/* Right Section - Actions */}
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 ">
+            {/* //  onClick={handleOnClick}> */}
               
               {/* Messages */}
               <button
@@ -100,8 +102,12 @@ export default function Navbar() {
               </button>
             </div>
           </div>
-        </div>
-      </div>
+          {/* as outlet is where all pages are wrapped so i put pt as main */}
+        <main className="pt-12">
+        <Outlet />
+      </main>
+
+
 
       {/* Floating AI Assistant Button */}
       <button
@@ -124,7 +130,7 @@ export default function Navbar() {
       <User open={user} onclose={() => setuser(false)} />
 
       {/* Overlay for mobile */}
-      {(sidebar || message || notif || ai || user) && (
+      {/* {(sidebar || message || notif || ai || user) && (
         <div
           className="fixed inset-0 bg-black/50 backdrop-blur-sm z-30 md:hidden"
           onClick={() => {
@@ -135,7 +141,7 @@ export default function Navbar() {
             setuser(false);
           }}
         />
-      )}
-    </>
+      )} */}
+    </div>
   );
 }

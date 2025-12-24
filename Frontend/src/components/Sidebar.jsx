@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { LayoutDashboard, BadgeDollarSign, ClipboardMinus, Settings, CalendarCheck, BanknoteIcon as Banknote, X, UsersRound, UserRound, LogOut,Search,ChevronDown,ChevronUp} from 'lucide-react';
 
+//props vaneko ({ open, onclose })   onclose works because it’s just a prop that happens to be a function.
 export default function Sidebar({ open, onclose }) {
   const [dropdown, setdropdown] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
@@ -13,7 +14,6 @@ export default function Sidebar({ open, onclose }) {
   };
 
   const menuItems = [
-    { to: "/dashboard", icon: LayoutDashboard, label: "Dashboard" },
     { to: "/settlement", icon: ClipboardMinus, label: "Settlement" },
     { to: "/payment", icon: BadgeDollarSign, label: "Payment" },
     { to: "/approval", icon: CalendarCheck, label: "Approval" },
@@ -25,8 +25,8 @@ export default function Sidebar({ open, onclose }) {
       {/* Overlay for mobile */}
       <div 
         className={`fixed inset-0 bg-black/60 backdrop-blur-sm z-40 transition-opacity duration-300 ${
-          open ? 'opacity-100' : 'opacity-0 pointer-events-none'
-        } lg:hidden`}
+          open ? 'opacity-100' : 'opacity-0'
+        }`}
         onClick={onclose}
       />
 
@@ -128,7 +128,7 @@ export default function Sidebar({ open, onclose }) {
               key={item.to}
               to={item.to}
               onClick={onclose}
-              className="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-700 dark:text-gray-200 hover:bg-purple-50 dark:hover:bg-gray-800 hover:text-purple-600 dark:hover:text-purple-400 transition-all duration-200 group"
+              className="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-600 dark:text-gray-200 hover:bg-purple-50 dark:hover:bg-gray-800 hover:text-purple-600 dark:hover:text-purple-400 transition-all duration-200 group"
             >
               <item.icon size={20} className="group-hover:scale-110 transition-transform duration-200" />
               <span className="font-medium">{item.label}</span>
