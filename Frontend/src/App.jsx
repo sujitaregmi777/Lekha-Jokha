@@ -11,6 +11,7 @@ import Password from "./pages/Password";
 import ExpensesSolo from "./pages/Expenses/ExpensesSolo";
 import ExpensesGroup from "./pages/Expenses/ExpensesGroup";
 import Settlement from "./pages/Settlement/Settlement";
+import Approval from "./pages/Approval/Approval";
 
 
 export default function App(){
@@ -28,6 +29,7 @@ export default function App(){
           <Route  path = "/group" element = {<ExpensesGroup/>} />
           <Route  path = "/solo" element = {<ExpensesSolo/>} />
           <Route  path = "/password" element = {<Password/>} />
+          <Route  path = "/approval" element = {<Approval/>} />
         </Routes>
 
 

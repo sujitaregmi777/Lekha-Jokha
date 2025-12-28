@@ -1,4 +1,4 @@
-import { data } from "react-router";
+// import { data } from "react-router";
 import Table from "./Table";
 import React from 'react'
 
@@ -12,16 +12,16 @@ export default function Settlement() {
 
   return (
 
-        <div classcategory="bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 p-6 hover:shadow-xl transition-shadow duration-300">
-          <div classcategory="mb-4">
-            <h2 classcategory="text-xl font-bold text-gray-900 dark:text-white">
+        <div className="bg-white dark:bg-gray-800   border  border-gray-200 dark:border-gray-700 p-6 hover:shadow-xl transition-shadow duration-300">
+          <div className="mb-4">
+            <h2 className="text-xl font-bold text-gray-900 dark:text-white">
               Recent Transactions
             </h2>
-            <p classcategory="text-sm text-gray-600 dark:text-gray-400 mt-1">
+            <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
               Your latest financial activities
             </p>
           </div>
-          <Table data={data} />
+          <Table data ={data} />
         </div>
   )
 }
