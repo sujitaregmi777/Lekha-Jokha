@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { LayoutDashboard, BadgeDollarSign, ClipboardMinus, Settings, CalendarCheck, BanknoteIcon as Banknote, X, UsersRound, UserRound, LogOut,Search,ChevronDown,ChevronUp} from 'lucide-react';
+import { LayoutDashboard, BadgeDollarSign, ClipboardMinus, Settings, CalendarCheck, BanknoteIcon as Banknote, X, UsersRound, UserRound, LogOut, Search, ChevronDown, ChevronUp } from 'lucide-react';
 
 //props vaneko ({ open, onclose })   onclose works because it’s just a prop that happens to be a function.
 export default function Sidebar({ open, onclose }) {
@@ -22,19 +22,16 @@ export default function Sidebar({ open, onclose }) {
 
   return (
     <>
-      {/* Overlay for mobile */}
-      <div 
-        className={`fixed inset-0 bg-black/60 backdrop-blur-sm z-40 transition-opacity duration-300 ${
-          open ? 'opacity-100' : 'opacity-0'
-        }`}
+      <div
+        className={`fixed inset-0 bg-black/60 backdrop-blur-sm z-40 transition-opacity duration-300 ${open ? 'opacity-100' : 'opacity-0'
+          }`}
         onClick={onclose}
       />
 
       {/* Sidebar */}
       <aside
-        className={`fixed inset-y-0 left-0 w-72 md:w-80 bg-white dark:bg-gray-900 shadow-2xl z-50 transform transition-transform duration-300 ease-in-out ${
-          open ? 'translate-x-0' : '-translate-x-full'
-        } flex flex-col`}
+        className={`fixed inset-y-0 left-0 w-72 md:w-80 bg-white dark:bg-gray-900 shadow-2xl z-50 transform transition-transform duration-300 ease-in-out ${open ? 'translate-x-0' : '-translate-x-full'
+          } flex flex-col`}
       >
         {/* Header */}
         <div className="flex items-center justify-between p-6 border-b border-gray-200 dark:border-gray-800">
@@ -71,7 +68,7 @@ export default function Sidebar({ open, onclose }) {
 
         {/* Navigation Links */}
         <nav className="flex-1 overflow-y-auto p-4 space-y-2">
-          
+
           {/* Dashboard */}
           <Link
             to="/dashboard"
@@ -97,9 +94,8 @@ export default function Sidebar({ open, onclose }) {
 
             {/* Dropdown Content */}
             <div
-              className={`overflow-hidden transition-all duration-300 ${
-                dropdown ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'
-              }`}
+              className={`overflow-hidden transition-all duration-300 ${dropdown ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'
+                }`}
             >
               <div className="ml-4 pl-4 border-l-2 border-purple-200 dark:border-purple-900 space-y-1 py-2">
                 <Link

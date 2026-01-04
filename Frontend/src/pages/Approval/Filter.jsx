@@ -7,21 +7,20 @@ export default function Filter({
   activeRequest,
   setActiveRequest,
 }) {
-  const tabs = ["day", "week", "month", "all"];
-  const type = ["income", "expense", "all"];
-  const request = [
-    "pending",
-    "approved",
-    "paid",
-    "rejected",
-    "reimbursement",
-    "all",
+  const tabs = ["Day", "Week", "Month", "All"];
+  const type = ["Income", "Expense", "All"];
+  const statuses = [
+    "Pending",
+    "Approved",
+    "Paid",
+    "Rejected",
+    "Reimbursement",
+    "All",
   ];
 
   return (
-    <div className="flex flex-wrap gap-4 mb-6">
+    <div className="flex gap-4 mb-6">
 
-      {/* Day Filter */}
       <div className="flex flex-col">
         <label className="text-sm text-gray-600 mb-1">Time</label>
         <select
@@ -37,7 +36,6 @@ export default function Filter({
         </select>
       </div>
 
-      {/* Type Filter */}
       <div className="flex flex-col">
         <label className="text-sm text-gray-600 mb-1">Type</label>
         <select
@@ -53,15 +51,14 @@ export default function Filter({
         </select>
       </div>
 
-      {/* Request Filter */}
       <div className="flex flex-col">
-        <label className="text-sm text-gray-600 mb-1">Request</label>
+        <label className="text-sm text-gray-600 mb-1">Status</label>
         <select
           value={activeRequest}
           onChange={(e) => setActiveRequest(e.target.value)}
           className="px-4 py-2 rounded-lg border border-gray-300"
         >
-          {request.map((r) => (
+          {statuses.map((r) => (
             <option key={r} value={r}>
               {r}
             </option>

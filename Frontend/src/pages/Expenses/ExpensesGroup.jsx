@@ -14,7 +14,7 @@ export default function ExpensesGroup() {
     const [fromDate, setFromDate] = useState("");
     const [toDate, setToDate] = useState("");
     const [isModalOpen, setIsModalOpen] = useState(null);
-      const [selectedGroupId, setSelectedGroupId] = useState("");
+    const [selectedGroupId, setSelectedGroupId] = useState("");
 
 
 
@@ -120,8 +120,8 @@ export default function ExpensesGroup() {
                                 className="w-full p-2 border rounded-lg dark:bg-gray-700 dark:text-white"
                                 required
                             />
-                            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">Description</label>
 
+                            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">Description</label>
                             <input
                                 type="text"
                                 value={description}
@@ -249,7 +249,7 @@ export default function ExpensesGroup() {
     );
 }
 
-const Modal = ({ children, title, onClose }) => (
+ export const Modal = ({ children, title, onClose }) => (
     <div className="fixed inset-0 bg-black bg-opacity-50 z-[100] flex justify-center items-center">
         <div className="bg-white dark:bg-gray-900 p-6 rounded-xl shadow-2xl w-full max-w-md  relative">
             <h3 className="text-xl font-bold mb-4 border-b pb-2 text-gray-800 dark:text-white">{title}</h3>
