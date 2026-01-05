@@ -64,7 +64,7 @@ export default function Login() {
                 <div className="relative">
                   <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
                   <input
-                    type={ "password"}
+                    type={"password"}
                     placeholder="Enter your password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
@@ -82,7 +82,10 @@ export default function Login() {
                   />
                   <span className="text-gray-700 ">Remember me</span>
                 </label>
-                <Link to = "/password" className="font-medium text-blue-600 hover:text-blue-700 transition-colors">
+                <Link
+                  to="/password"
+                  className="font-medium text-blue-600 hover:text-blue-700 transition-colors"
+                >
                   Forgot password?
                 </Link>
               </div>
@@ -149,7 +152,10 @@ export default function Login() {
           <div className="px-8 py-6 bg-gray-50  border-t border-gray-200  text-center">
             <p className="text-sm text-gray-600 ">
               Don't have an account?{" "}
-              <Link to ="/register" className="font-semibold text-blue-600 hover:text-blue-700  -300 transition-colors">
+              <Link
+                to="/register"
+                className="font-semibold text-blue-600 hover:text-blue-700  -300 transition-colors"
+              >
                 Sign up for free
               </Link>
             </p>

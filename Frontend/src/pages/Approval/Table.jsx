@@ -6,9 +6,11 @@ import { data } from "./Approval";
 
 export default function Table({ data }) {
   const [isModalOpen, setIsModalOpen] = useState(null);
+  const [isModalReject, setIsModalReject] = useState(null);
 
   const handleApprove = (request) => {
   console.log("Approved:", request);
+  // used to close like when approve button is clicked it will close the tab/modal
   setIsModalOpen(null);
 };
 
@@ -16,9 +18,6 @@ const handleReject = (request) => {
   console.log("Rejected:", request);
   setIsModalOpen(null);
 };
-
-
-
 
   const statusClasses = {
     Paid: "bg-green-100 text-green-700 dark:bg-green-800 dark:text-green-200",
@@ -77,7 +76,9 @@ const handleReject = (request) => {
                   <button className="  flex  gap-1 items-center font-semibold px-3 py-3 text-xs rounded bg-green-600 dark:bg-green-800 text-white dark:text-green-200 hover:opacity-80">
                     <CheckCircle size={14} /> Approve
                   </button>
-                  <button className=" flex items-center font-semibold gap-1 px-4 py-3 text-xs rounded bg-red-600 text-white dark:bg-red-800 dark:text-red-200 hover:opacity-80">
+                  <button 
+                  onClick={() => setIsModalReject(item)}
+                  className=" flex items-center font-semibold gap-1 px-4 py-3 text-xs rounded bg-red-600 text-white dark:bg-red-800 dark:text-red-200 hover:opacity-80">
                     <XCircle size={14} /> Reject
                   </button>
                 </div>
@@ -88,29 +89,28 @@ const handleReject = (request) => {
       </table>
       {isModalOpen && (
         <Modal onClose={() => setIsModalOpen(null)}>
-          <div className="bg-white dark:bg-gray-900 p-6 rounded-xl shadow-lg w-[22rem]">
-            <h2 className="text-lg font-semibold mb-4 text-gray-800 dark:text-white">
+            <h2 className="text-xl font-bold mb-4 text-gray-800 dark:text-white">
               Request Details
             </h2>
 
             <div className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
               <div className="flex justify-between">
-                <span className="font-medium">Name</span>
+                <span className="font-bold">Name</span>
                 <span className="font-semibold">{isModalOpen.name}</span>
               </div>
 
               <div className="flex justify-between">
-                <span className="font-medium">Type</span>
+                <span className="font-bold">Type</span>
                 <span className="font-semibold">{isModalOpen.type}</span>
               </div>
 
               <div className="flex justify-between">
-                <span className="font-medium">Amount</span>
+                <span className="font-bold">Amount</span>
                 <span className="font-semibold">Nrs. {isModalOpen.amount}</span>
               </div>
 
               <div className="flex justify-between">
-                <span className="font-medium">Status</span>
+                <span className="font-bold">Status</span>
                 <span className="font-semibold">{isModalOpen.status}</span>
               </div>
             </div>
@@ -143,9 +143,57 @@ const handleReject = (request) => {
                 Reject
               </button>
             </div>
-          </div>
+
+          {/* </div> */}
         </Modal>
-      )}
+)}
+        {isModalReject && (
+              <Modal onClose={() => setIsModalReject(null)}>
+                        <h2 className="text-lg font-bold mb-4 text-gray-800 dark:text-white">
+                        Reject Request
+                        </h2>
+
+                      <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                        Please provide a reason for rejection:
+                      </label>
+
+                        <textarea
+                          type = "text"
+                          // onChange={(e) => setRejectReason(e.target.value)}
+                          placeholder="Enter your reason here..."
+                          rows={4}
+                          className="w-full rounded-lg border border-gray-300 dark:border-gray-700
+                                    bg-white dark:bg-gray-800 text-gray-800 dark:text-white
+                                    p-2 text-sm "
+                                    required
+                        />
+
+                          <div className="mt-6 flex justify-end gap-3">
+                            <button
+                              onClick={() => setIsModalReject(null)}
+                              className="px-4 py-2 text-sm rounded
+                                        bg-gray-200 text-gray-800 hover:bg-gray-300
+                                        dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600"
+                            >
+                              Cancel
+                            </button>
+
+                            <button
+                            type="submit"
+                              // onClick={() => handleRejectConfirm()}
+                              // disabled={!rejectReason.trim()}
+                              className="px-4 py-2 text-sm rounded text-white
+                                        bg-red-600 hover:bg-red-700"
+                            >
+                              Submit
+                            </button>
+                              </div>
+                            
+                </Modal>
+                        )}
+
+
+      
     </div>
   );
 }
