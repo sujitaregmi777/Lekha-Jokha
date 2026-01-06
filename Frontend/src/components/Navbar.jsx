@@ -48,12 +48,12 @@ export default function Navbar() {
           >
             <Menu size={22} />
           </button>
-
+{/* 
           <div className=" sm:block">
             <h1 className="text-xl font-semibold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
               Dashboard
             </h1>
-          </div>
+          </div> */}
         </div>
 
         {/* Right Section - Actions */}

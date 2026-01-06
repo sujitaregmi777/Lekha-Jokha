@@ -6,17 +6,20 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Navbar from "./components/Navbar";
-// import Expenses from "./pages/Expenses";
 import Password from "./pages/Password";
 import ExpensesSolo from "./pages/Expenses/ExpensesSolo";
 import ExpensesGroup from "./pages/Expenses/ExpensesGroup";
 import Settlement from "./pages/Settlement/Settlement";
 import Approval from "./pages/Approval/Approval";
+import NotificationProvider from "./context/NotificationContext";
+import Usersetting from "./pages/Usersetting";
+import Settings from "./pages/Settings";
 
 
 export default function App(){
   return(
     <ThemeP>
+      <NotificationProvider>
       <Navbar />
         <Routes>
           <Route element = {<Layout/>} />
@@ -29,10 +32,12 @@ export default function App(){
           <Route  path = "/group" element = {<ExpensesGroup/>} />
           <Route  path = "/solo" element = {<ExpensesSolo/>} />
           <Route  path = "/password" element = {<Password/>} />
+          <Route  path = "/usersetting" element = {<Usersetting/>} />
+          <Route  path = "/settings" element = {<Settings/>} />
           <Route  path = "/approval" element = {<Approval/>} />
         </Routes>
 
-
+</NotificationProvider>
     </ThemeP>
   );
 }
