@@ -2,6 +2,7 @@ import { Outlet, useLocation } from "react-router-dom";
 import { Moon, Sun, Menu, MessageCircle, Bell, Bot } from "lucide-react";
 import { useContext, useState } from "react";
 import { ThemeContext } from "../context/ThemeContext";
+import { ProfileContext } from "../context/ProfileContext";
 import AI from "./AI";
 import Sidebar from "./Sidebar";
 import Message from "./Message";
@@ -22,6 +23,7 @@ export default function Navbar() {
   const toggleai = () => setai((prev) => !prev);
   const toggleuser = () => setuser((prev) => !prev);
 
+  const { profile } = useContext(ProfileContext);
   const location = useLocation();
   const hidelayout =
     location.pathname === "/login" ||
@@ -35,10 +37,7 @@ export default function Navbar() {
   return (
     <div>
       {/* Main Navbar */}
-      <div
-        className="fixed top-0 z-40 backdrop-blur-lg  dark:bg-gray-900/80 border-b border-gray-200 dark:border-gray-800 shadow-sm w-full px-4 sm:px-6 lg:px-8 flex items-center justify-between "
-        
-      >
+      <div className="fixed top-0 z-40 backdrop-blur-lg  dark:bg-gray-900/80 border-b border-gray-200 dark:border-gray-800 shadow-sm w-full px-4 sm:px-6 lg:px-8 flex items-center justify-between ">
         {/* Left Section - Menu */}
         <div className="flex items-center gap-4">
           <button
@@ -48,18 +47,10 @@ export default function Navbar() {
           >
             <Menu size={22} />
           </button>
-{/* 
-          <div className=" sm:block">
-            <h1 className="text-xl font-semibold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
-              Dashboard
-            </h1>
-          </div> */}
         </div>
 
         {/* Right Section - Actions */}
         <div className="flex items-center gap-2 ">
-          {/* //  onClick={handleOnClick}> */}
-
           {/* Messages */}
           <button
             onClick={togglemessage}
@@ -97,10 +88,20 @@ export default function Navbar() {
             className="flex items-center gap-2 px-3 py-2 rounded-lg text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-200"
             aria-label="User menu"
           >
-            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-purple-600 to-blue-600 flex items-center justify-center text-white font-semibold text-sm">
-              X
+            <div className="w-8 h-8  flex items-center justify-center text-white font-semibold text-sm">
+              <img
+                src={
+                  profile.avatar ||
+                  "https://static.vecteezy.com/system/resources/previews/040/089/058/large_2x/male-profile-icon-vector.jpg"
+                }
+                alt="Profile"
+                className="w-10 h-10 rounded-full object-cover "
+              />
+              <span className="text-black dark:text-white text-sm font-medium">
+                {profile.firstName}
+              </span>
             </div>
-            <div className="hidden md:block font-medium">Xyz</div>
+            <div className="hidden md:block font-medium"></div>
           </button>
         </div>
       </div>
@@ -131,20 +132,6 @@ export default function Navbar() {
       <Notification open={notif} onclose={() => setnotif(false)} />
       <AI open={ai} onclose={() => setai(false)} />
       <User open={user} onclose={() => setuser(false)} />
-
-      {/* Overlay for mobile */}
-      {/* {(sidebar || message || notif || ai || user) && (
-        <div
-          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-30 md:hidden"
-          onClick={() => {
-            setsidebar(false);
-            setmessage(false);
-            setnotif(false);
-            setai(false);
-            setuser(false);
-          }}
-        />
-      )} */}
     </div>
   );
 }

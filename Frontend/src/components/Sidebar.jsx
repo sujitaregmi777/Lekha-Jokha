@@ -17,7 +17,7 @@ export default function Sidebar({ open, onclose }) {
     { to: "/settlement", icon: ClipboardMinus, label: "Settlement" },
     { to: "/payment", icon: BadgeDollarSign, label: "Payment" },
     { to: "/approval", icon: CalendarCheck, label: "Approval" },
-    { to: "/settings", icon: Settings, label: "Settings" },
+    { to: "/usersetting", icon: Settings, label: "Settings" },
   ];
 
   return (

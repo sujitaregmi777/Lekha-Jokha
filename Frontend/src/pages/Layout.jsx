@@ -13,7 +13,8 @@ export default function Layout() {
     <Notification />
       <Navbar />
       <main>
-        <Outlet /> 
+        <Outlet /> {/* outlet is placeholder of react router dom */}
+
       </main>
     </>
   );

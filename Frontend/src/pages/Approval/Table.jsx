@@ -17,11 +17,13 @@ export default function Table({ data: initialdata }) {
   const handleApprove = (request) => {
     setApprovals((prev) => prev.filter((item) => item.id !== request.id));
     addNotification({
-      ...request, //spread operator to copy all properties from the original request object
+      ...request,
+       //spread operator to copy all properties from the original request object
       status: "Accepted",
       message: "Request was accepted",
       createdAt: new Date(),
     });
+
     setIsModalApproval(null);
     setIsModalOpen(null);
   };
